@@ -3,6 +3,6 @@ Name=ClickUp
 Exec=/usr/bin/clickup
 Terminal=false
 Type=Application
-Icon=clickup
+Icon=desktop
 Categories=Office;ProjectManagement;
 Comment=All-in-one collaboration and project management tool

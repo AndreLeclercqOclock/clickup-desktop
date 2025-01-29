@@ -62,6 +62,13 @@ sha256sums=(
   'SKIP'
 )
 
+# Get Icon
+prepare() {
+  cd "$srcdir"
+  chmod +x clickup-desktop.AppImage
+  ./clickup-desktop.AppImage --appimage-extract usr/share/icons
+}
+
 # -------------------- #
 # Package Installation #
 # -------------------- #
@@ -72,6 +79,10 @@ package() {
   # Install AppImage with execute permissions
   install -Dm755 "clickup-desktop.AppImage" "$pkgdir/opt/clickup/clickup-desktop.AppImage"
 
+  # Install Icon and clean
+  cp -r squashfs-root/usr/share/icons/* "$pkgdir/usr/share/icons/"
+  rm -rf squashfs-root
+  
   # Ensure AppImage is executable
   chmod 755 "$pkgdir/opt/clickup/clickup-desktop.AppImage"
 
@@ -79,5 +90,5 @@ package() {
   install -Dm755 "$srcdir/clickup-wrapper" "$pkgdir/usr/bin/clickup"
 
   # Install desktop file
-  install -Dm644 "$srcdir/clickup.desktop" "$pkgdir/usr/share/applications/clickup.desktop"
+  install -Dm644 "$srcdir/clickup.desktop" "$pkgdir/usr/share/applications/clickup.desktop"  
 }
