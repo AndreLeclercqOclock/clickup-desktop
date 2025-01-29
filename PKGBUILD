@@ -75,6 +75,7 @@ prepare() {
 package() {
   # Create installation directory
   install -dm755 "$pkgdir/opt/clickup"
+  install -dm755 "$pkgdir/usr/share/icons"
 
   # Install AppImage with execute permissions
   install -Dm755 "clickup-desktop.AppImage" "$pkgdir/opt/clickup/clickup-desktop.AppImage"
