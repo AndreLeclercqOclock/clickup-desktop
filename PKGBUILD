@@ -82,6 +82,7 @@ package() {
 
   # Install Icon and clean
   cp -r squashfs-root/usr/share/icons/* "$pkgdir/usr/share/icons/"
+  chmod -R 755 "$pkgdir/usr/share/icons"
   rm -rf squashfs-root
   
   # Ensure AppImage is executable
