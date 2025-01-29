@@ -23,6 +23,7 @@ depends=(
   'libxcb'
   'libsecret'
   'libxss'
+  'fuse2'
 )
 
 optdepends=(
